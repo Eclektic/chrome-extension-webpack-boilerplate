@@ -1,4 +1,4 @@
-import "../css/popup.css";
+import "../css/popup.scss";
 import hello from "./popup/example";
 
 hello();

@@ -28,11 +28,22 @@ var options = {
     path: path.join(__dirname, "build"),
     filename: "[name].bundle.js"
   },
+  devtool: "source-map",
   module: {
     rules: [
       {
-        test: /\.css$/,
-        loader: "style-loader!css-loader",
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader",
+        }, {
+          loader: "css-loader", options: {
+            sourceMap: true
+          }
+        }, {
+          loader: "sass-loader", options: {
+            sourceMap: true
+          }
+        }],
         exclude: /node_modules/
       },
       {
